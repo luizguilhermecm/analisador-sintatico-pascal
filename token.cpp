@@ -78,11 +78,15 @@ void Tokens::EraseToken () {
   Token.pop_back();
 }
 
-bool Tokens::isEqual (int token_comparativo) {
-  if (Token.back() == token_comparativo)
-    return true;
-  else
-    return false;
+void Tokens::Inverter (){
+  vector<int>aux;
+  aux = Token;
+  Token.clear();
+  while (!aux.empty()){
+    Token.push_back(aux.back());
+    aux.pop_back();
+  }
+  aux.clear();
 }
 
 void Tokens::printTokens(){
@@ -91,4 +95,12 @@ void Tokens::printTokens(){
     cout << Token[i] << " ";
     i++;
   }
+}
+
+bool Tokens::NextIsEqual(int t){
+  int next = getToken();
+  if (next == t){
+  return true;
+  } else return false;
+
 }

@@ -5,7 +5,6 @@
 #include <fstream>
 
 #include "lexico.h"
-
 using namespace std;
 
 
@@ -156,6 +155,9 @@ void Lexico::AnalisadorLexico(){
   Token (final_state);
   cout << "\n\n\n\n";
   printTokens();
+  cout << "\n\n\n\n";
+  Inverter();
+  printTokens();
 }
 
 void Lexico::Token (int final) {
@@ -182,7 +184,7 @@ void Lexico::Token (int final) {
     case 21 : cout << " ]\n"     ; setToken (21); break ;
     case 22 : cout << " ,\n"     ; setToken (22); break ;
     case 23 : cout << " \\n\n"   ; setToken (23); break ;
-    case 24 : cout << " W\n"     ; setToken (24); break ;
+    case 24 : cout << " W\n"     ; setToken (16); break ;
     case 25 : cout << " ;\n"     ; setToken (25); break ;
     case 26 : cout << " /\n"     ; setToken (26); break ;
     case 27 : cout << " ˆ\n"     ; setToken (27); break ;
@@ -198,8 +200,8 @@ void Lexico::Token (int final) {
     case 37 : cout << " (.\n"    ; setToken (37); break ;
     case 38 : cout << " .)\n"    ; setToken (38); break ;
     case 39 : cout << " //\n"    ; setToken (39); break ;
-    case 40 : cout << " _\n"     ; setToken (40); break ;
-    case 41 : cout << " tab\n"   ; setToken (41); break ;
+    case 40 : cout << " _\n"     ; setToken (2); break ;
+    case 41 : cout << " tab\n"   ; setToken (16); break ;
     case 42 : cout << " error\n" ; break ;
   }
 }

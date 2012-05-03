@@ -8,7 +8,8 @@ class Tokens{
     int getToken ();
     void setToken (int new_token);
     void printTokens ();
-    bool isEqual (int token_comparativo);
+    void Inverter ();
+    bool NextIsEqual (int t);
     bool IsReservada (string palavra);
     void setToken (int new_token, int qnt);
     void EraseToken (); 

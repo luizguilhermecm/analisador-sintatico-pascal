@@ -1,13 +1,13 @@
 #include <iostream>
 
-#include "lexico.cpp"
-
+#include "sintatico.cpp"
 using namespace std;
 
 int main () {
 
-  Lexico novo;
+  Sintatico novo;
   novo.AnalisadorLexico();
-
+  novo.programa();
   return 0;
+  
 }
