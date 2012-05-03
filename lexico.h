@@ -1,24 +1,19 @@
-#include <iostream>
-#include <vector>
+#include "token.cpp"
 
-using namespace std;
+#define estados 42//fazer o automato e confirmar valor
+#define alfabeto 25//confirmar
+#define estado_erro 25
 
-#define estados 25  //fazer o automato e confirmar valor
-#define alfabeto 18 //confirmar
-
-
-class Lexico {
+class Lexico : public Tokens{
   public:
-    Lexico ();
     void AnalisadorLexico ();
-    int getAutomato (int estado, int caracter);
     int PosicaoIndice (char ch);
-    bool isFinal (int estado);
-    
+    bool IsFinal (int estado);
+    void print ();    
+    void iniciar();
+    Lexico();
+    void Token (int final);
   private:
     int automato [estados][alfabeto];
     char indice [alfabeto];
-    
-
 };
-

@@ -1,11 +1,13 @@
 #include <iostream>
 
-#include "token.h"
+#include "lexico.cpp"
+
+using namespace std;
 
 int main () {
 
-  Token novo;
+  Lexico novo;
+  novo.AnalisadorLexico();
 
   return 0;
-
 }
