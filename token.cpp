@@ -55,10 +55,9 @@ bool Tokens::IsReservada (string palavra){
     setToken (OR);
     return true;
   }
-  if (palavra == "true") {
-    setToken (TRUE);
-    return true;
-  }
+  //if (palavra == "true") {
+  //  return true;
+  //}
   if (palavra == "else") {
     setToken (ELSE);
     return true;
@@ -95,6 +94,11 @@ void Tokens::printTokens(){
     cout << Token[i] << " ";
     i++;
   }
+}
+
+bool Tokens::IsEqual (int tok_, int need) {
+  if (tok_ == need) return true;
+  else return false;
 }
 
 bool Tokens::NextIsEqual(int t){

@@ -2,7 +2,7 @@
 
 #define estados 42//fazer o automato e confirmar valor
 #define alfabeto 25//confirmar
-#define estado_erro 25
+#define estado_erro 42 
 
 class Lexico : public Tokens{
   public:

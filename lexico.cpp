@@ -94,6 +94,7 @@ int Lexico::PosicaoIndice (char ch){
     return 0;
   if (isdigit(ch))
     return 1;
+  return -1;
 }
 
 bool Lexico::IsFinal (int estado){
@@ -140,7 +141,7 @@ void Lexico::AnalisadorLexico(){
       if (caracter [i] == '\n') cout << "\\n" << flush;
       i++; 
     }
-
+    if (current_state == estado_erro) exit(0);
     if (current_state == 0) {
       if (final_state == 2 || final_state == 40){
         if (IsReservada(palavra)) cout << "RESERVADA\n"; 
@@ -184,7 +185,7 @@ void Lexico::Token (int final) {
     case 21 : cout << " ]\n"     ; setToken (21); break ;
     case 22 : cout << " ,\n"     ; setToken (22); break ;
     case 23 : cout << " \\n\n"   ; setToken (23); break ;
-    case 24 : cout << " W\n"     ; setToken (16); break ;
+    case 24 : cout << " W\n"     ; setToken (24); break ;
     case 25 : cout << " ;\n"     ; setToken (25); break ;
     case 26 : cout << " /\n"     ; setToken (26); break ;
     case 27 : cout << " ˆ\n"     ; setToken (27); break ;
@@ -201,7 +202,7 @@ void Lexico::Token (int final) {
     case 38 : cout << " .)\n"    ; setToken (38); break ;
     case 39 : cout << " //\n"    ; setToken (39); break ;
     case 40 : cout << " _\n"     ; setToken (2); break ;
-    case 41 : cout << " tab\n"   ; setToken (16); break ;
+    case 41 : cout << " tab\n"   ; setToken (24); break ;
     case 42 : cout << " error\n" ; break ;
   }
 }
