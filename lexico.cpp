@@ -1,10 +1,5 @@
-//           {a,0,=,<,>,+ ,- ,* ,. ,: ,( ,) ,[ ,] ,, ,\n,  ,; }
-#include <vector>
-#include <iostream>
-#include <string>
-#include <fstream>
-
 #include "lexico.h"
+#include <fstream>
 using namespace std;
 
 
@@ -163,78 +158,45 @@ void Lexico::AnalisadorLexico(){
 
 void Lexico::Token (int final) {
 	switch (final) {
-		case 2  : cout << " letra\n" ; break ;
-		case 3  : cout << " num\n"   ; setToken (3); break ;
-		case 4  : cout << " EQ\n"    ; setToken (4); break ;
-    case 5  : cout << " <\n"     ; setToken (5); break ;
-    case 6  : cout << " <>\n"    ; setToken (6); break ;
-		case 7  : cout << " <=\n"    ; setToken (7); break ;
-		case 8  : cout << " >\n"     ; setToken (8); break ;
-		case 9  : cout << " >=\n"    ; setToken (9); break ;
-		case 10 : cout << " +\n"     ; setToken (10); break ;
-		case 11 : cout << " -\n"     ; setToken (11); break ;
-    case 12 : cout << " *\n"     ; setToken (12); break ;
-    case 13 : cout << " .\n"     ; setToken (13); break ;
-    case 14 : cout << " ..\n"    ; setToken (14); break ;
-    case 15 : cout << " :\n"     ; setToken (15); break ;
-    case 16 : cout << " :=\n"    ; setToken (16); break ;
-    case 17 : cout << " (\n"     ; setToken (17); break ;
-    case 18 : cout << " ()\n"    ; setToken (18); break ;
-    case 19 : cout << " )\n"     ; setToken (19); break ;
-    case 20 : cout << " [\n"     ; setToken (20); break ;
-    case 21 : cout << " ]\n"     ; setToken (21); break ;
-    case 22 : cout << " ,\n"     ; setToken (22); break ;
-    case 23 : cout << " \\n\n"   ; setToken (23); break ;
-    case 24 : cout << " W\n"     ; setToken (24); break ;
-    case 25 : cout << " ;\n"     ; setToken (25); break ;
-    case 26 : cout << " /\n"     ; setToken (26); break ;
-    case 27 : cout << " ˆ\n"     ; setToken (27); break ;
-    case 28 : cout << " @\n"     ; setToken (28); break ;
-    case 29 : cout << " $\n"     ; setToken (29); break ;
-    case 30 : cout << " #\n"     ; setToken (30); break ;
-    case 31 : cout << " +=\n"    ; setToken (31); break ;
-    case 32 : cout << " -=\n"    ; setToken (32); break ;
-    case 33 : cout << " *=\n"    ; setToken (33); break ;
-    case 34 : cout << " /=\n"    ; setToken (34); break ;
-    case 35 : cout << " (*\n"    ; setToken (35); break ;
-    case 36 : cout << " *)\n"    ; setToken (36); break ;
-    case 37 : cout << " (.\n"    ; setToken (37); break ;
-    case 38 : cout << " .)\n"    ; setToken (38); break ;
-    case 39 : cout << " //\n"    ; setToken (39); break ;
-    case 40 : cout << " _\n"     ; setToken (2); break ;
-    case 41 : cout << " tab\n"   ; setToken (24); break ;
-    case 42 : cout << " error\n" ; break ;
+		case 3 : cout << " num\n"  ; setToken (3) ; break;
+		case 4 : cout << " EQ\n"   ; setToken (4) ; break;
+    case 5 : cout << " <\n"    ; setToken (5) ; break;
+    case 6 : cout << " <>\n"   ; setToken (6) ; break;
+		case 7 : cout << " <=\n"   ; setToken (7) ; break;
+		case 8 : cout << " >\n"    ; setToken (8) ; break;
+		case 9 : cout << " >=\n"   ; setToken (9) ; break;
+		case 10: cout << " +\n"    ; setToken (10); break;
+		case 11: cout << " -\n"    ; setToken (11); break;
+    case 12: cout << " *\n"    ; setToken (12); break;
+    case 13: cout << " .\n"    ; setToken (13); break;
+    case 14: cout << " ..\n"   ; setToken (14); break;
+    case 15: cout << " :\n"    ; setToken (15); break;
+    case 16: cout << " :=\n"   ; setToken (16); break;
+    case 17: cout << " (\n"    ; setToken (17); break;
+    case 18: cout << " ()\n"   ; setToken (18); break;
+    case 19: cout << " )\n"    ; setToken (19); break;
+    case 20: cout << " [\n"    ; setToken (20); break;
+    case 21: cout << " ]\n"    ; setToken (21); break;
+    case 22: cout << " ,\n"    ; setToken (22); break;
+    case 23: cout << " \\n\n"  ; setToken (23); break;
+    case 24: cout << " W\n"    ; setToken (24); break;
+    case 25: cout << ";\n"     ; setToken (25); break;
+    case 26: cout << " /\n"    ; setToken (26); break;
+    case 27: cout << " ˆ\n"    ; setToken (27); break;
+    case 28: cout << " @\n"    ; setToken (28); break;
+    case 29: cout << " $\n"    ; setToken (29); break;
+    case 30: cout << " #\n"    ; setToken (30); break;
+    case 31: cout << " +=\n"   ; setToken (31); break;
+    case 32: cout << " -=\n"   ; setToken (32); break;
+    case 33: cout << " *=\n"   ; setToken (33); break;
+    case 34: cout << " /=\n"   ; setToken (34); break;
+    case 35: cout << " (*\n"   ; setToken (35); break;
+    case 36: cout << " *)\n"   ; setToken (36); break;
+    case 37: cout << " (.\n"   ; setToken (37); break;
+    case 38: cout << " .)\n"   ; setToken (38); break;
+    case 39: cout << " //\n"   ; setToken (39); break;
+    case 40: cout << " _\n"    ; setToken (2) ; break;
+    case 41: cout << " tab\n"  ; setToken (24); break;
+    case 42: cout << " error\n"; break;
   }
 }
-
-
-
-/*
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 0
-{2,3,4,5,8,10,11,12,13,15,17,19,20,21,22,23,24,25}, //estado 1 
-{2,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 2
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 3
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 4 
-{0,0,7,0,6,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 5 
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 6 
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 7 
-{0,0,9,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 8 
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 9 
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 10
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 11
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 12
-{0,0,0,0,0,0 ,0 ,0 ,14,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 13
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 14
-{0,0,16,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0}, //estado 15
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 16
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,18,0 ,0 ,0 ,0 ,0 ,0 }, //estado 17
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 18
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 19
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 20
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 21
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 22
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 23
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 24
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 25
-{0,0,0,0,0,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 }, //estado 26
-*/

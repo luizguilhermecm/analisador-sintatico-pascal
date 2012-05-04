@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <cstring>
 
 #include "token.h"
 
@@ -15,50 +16,53 @@ void Tokens::setToken (int new_token, int qnt){
 }
 
 bool Tokens::IsReservada (string palavra){
-  if (palavra == "program") {
+  char * lower;
+  lower = new char[palavra.size()+1];
+  strcpy (lower, palavra.c_str());
+  if (strcasecmp(lower,"program")==0) {
     setToken (PROGRAM);
     return true;
   }
-  if (palavra == "var") {
+  if (strcasecmp(lower,"var")==0) {
     setToken (VAR);
     return true;
   }
-  if (palavra == "begin") {
+  if (strcasecmp(lower,"begin")==0) {
     setToken (BEGIN);
     return true;
   }
-  if (palavra == "end") {
+  if (strcasecmp(lower,"end")==0) {
     setToken (END);
     return true;
   }
-  if (palavra == "function") {
+  if (strcasecmp(lower,"function")==0) {
     setToken (FUNCTION);
     return true;
   }
-  if (palavra == "procedure") {
+  if (strcasecmp(lower,"procedure")==0) {
     setToken (PROCEDURE);
     return true;
   }
-  if (palavra == "then") {
+  if (strcasecmp(lower,"then")==0) {
     setToken (THEN);
     return true;
   }
-  if (palavra == "if") {
+  if (strcasecmp(lower,"if")==0) {
     setToken (IF);
     return true;
   }
-  if (palavra == "not") {
+  if (strcasecmp(lower,"not")==0) {
     setToken (NOT);
     return true;
   }
-  if (palavra == "or") {
+  if (strcasecmp(lower,"or")==0) {
     setToken (OR);
     return true;
   }
-  //if (palavra == "true") {
+  //if (strcasecmp(lower,"true") {
   //  return true;
   //}
-  if (palavra == "else") {
+  if (strcasecmp(lower,"else")==0) {
     setToken (ELSE);
     return true;
   }
