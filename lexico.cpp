@@ -1,6 +1,5 @@
 #include "lexico.h"
 #include <fstream>
-#include <vector>
 using namespace std;
 
 
@@ -10,7 +9,6 @@ Lexico::Lexico(){
       automato[i][j] = 0;
     }
   }
-  cout << "a" << endl;
   automato[1][0]   = 2;
   automato[1][1]   = 3;
   automato[1][2]   = 4;
@@ -109,18 +107,15 @@ void Lexico::print () {
 }
 
 
-void Lexico::AnalisadorLexico(){
-  ifstream fin ("texte.txt");
+void Lexico::AnalisadorLexico(char * argumento){
+  ifstream fin (argumento);
   vector<char> caracter;
   char ch;
   int i;
   while (fin.get(ch)) caracter.push_back(ch); 
-  for(i = 0; i < caracter.size(); i++) cout << caracter[i]; 
   fin.clear();
   fin.close();
-  cout << "\n\nSaida\n\n";
   int current_state = 1;
-  cout << "0" << endl;
   int final_state = 0;
   int indice_caracter;
   string palavra;
@@ -135,14 +130,12 @@ void Lexico::AnalisadorLexico(){
 
     if (current_state != 0) {
       if (current_state == 2) palavra.push_back(caracter[i]);
-      if (caracter [i] != '\n') cout << caracter [i] << flush;
-      if (caracter [i] == '\n') cout << "\\n" << flush;
       i++; 
     }
     if (current_state == estado_erro) exit(0);
     if (current_state == 0) {
       if (final_state == 2 || final_state == 40){
-        if (IsReservada(palavra)) cout << "RESERVADA\n"; 
+        if (IsReservada(palavra));
         else setToken(2,palavra.size());
         palavra.clear();
       }
@@ -152,54 +145,50 @@ void Lexico::AnalisadorLexico(){
     }
   }
   Token (final_state);
-  cout << "\n\n\n\n";
-  printTokens();
-  cout << "\n\n\n\n";
   Inverter();
-  printTokens();
 }
 
 void Lexico::Token (int final) {
 	switch (final) {
-		case 3 : cout << " num\n"  ; setToken (3) ; break;
-		case 4 : cout << " EQ\n"   ; setToken (4) ; break;
-    case 5 : cout << " <\n"    ; setToken (5) ; break;
-    case 6 : cout << " <>\n"   ; setToken (6) ; break;
-		case 7 : cout << " <=\n"   ; setToken (7) ; break;
-		case 8 : cout << " >\n"    ; setToken (8) ; break;
-		case 9 : cout << " >=\n"   ; setToken (9) ; break;
-		case 10: cout << " +\n"    ; setToken (10); break;
-		case 11: cout << " -\n"    ; setToken (11); break;
-    case 12: cout << " *\n"    ; setToken (12); break;
-    case 13: cout << " .\n"    ; setToken (13); break;
-    case 14: cout << " ..\n"   ; setToken (14); break;
-    case 15: cout << " :\n"    ; setToken (15); break;
-    case 16: cout << " :=\n"   ; setToken (16); break;
-    case 17: cout << " (\n"    ; setToken (17); break;
-    case 18: cout << " ()\n"   ; setToken (18); break;
-    case 19: cout << " )\n"    ; setToken (19); break;
-    case 20: cout << " [\n"    ; setToken (20); break;
-    case 21: cout << " ]\n"    ; setToken (21); break;
-    case 22: cout << " ,\n"    ; setToken (22); break;
-    case 23: cout << " \\n\n"  ; setToken (23); break;
-    case 24: cout << " W\n"    ; setToken (24); break;
-    case 25: cout << ";\n"     ; setToken (25); break;
-    case 26: cout << " /\n"    ; setToken (26); break;
-    case 27: cout << " ˆ\n"    ; setToken (27); break;
-    case 28: cout << " @\n"    ; setToken (28); break;
-    case 29: cout << " $\n"    ; setToken (29); break;
-    case 30: cout << " #\n"    ; setToken (30); break;
-    case 31: cout << " +=\n"   ; setToken (31); break;
-    case 32: cout << " -=\n"   ; setToken (32); break;
-    case 33: cout << " *=\n"   ; setToken (33); break;
-    case 34: cout << " /=\n"   ; setToken (34); break;
-    case 35: cout << " (*\n"   ; setToken (35); break;
-    case 36: cout << " *)\n"   ; setToken (36); break;
-    case 37: cout << " (.\n"   ; setToken (37); break;
-    case 38: cout << " .)\n"   ; setToken (38); break;
-    case 39: cout << " //\n"   ; setToken (39); break;
-    case 40: cout << " _\n"    ; setToken (2) ; break;
-    case 41: cout << " tab\n"  ; setToken (24); break;
-    case 42: cout << " error\n"; break;
+		case 3 : setToken (3) ; break;
+		case 4 : setToken (4) ; break;
+    case 5 : setToken (5) ; break;
+    case 6 : setToken (6) ; break;
+		case 7 : setToken (7) ; break;
+		case 8 : setToken (8) ; break;
+		case 9 : setToken (9) ; break;
+		case 10: setToken (10); break;
+		case 11: setToken (11); break;
+    case 12: setToken (12); break;
+    case 13: setToken (13); break;
+    case 14: setToken (14); break;
+    case 15: setToken (15); break;
+    case 16: setToken (16); break;
+    case 17: setToken (17); break;
+    case 18: setToken (18); break;
+    case 19: setToken (19); break;
+    case 20: setToken (20); break;
+    case 21: setToken (21); break;
+    case 22: setToken (22); break;
+    case 23: setToken (23); break;
+    case 24: setToken (24); break;
+    case 25: setToken (25); break;
+    case 26: setToken (26); break;
+    case 27: setToken (27); break;
+    case 28: setToken (28); break;
+    case 29: setToken (29); break;
+    case 30: setToken (30); break;
+    case 31: setToken (31); break;
+    case 32: setToken (32); break;
+    case 33: setToken (33); break;
+    case 34: setToken (34); break;
+    case 35: setToken (35); break;
+    case 36: setToken (36); break;
+    case 37: setToken (37); break;
+    case 38: setToken (38); break;
+    case 39: setToken (39); break;
+    case 40: setToken (2) ; break;
+    case 41: setToken (24); break;
+    case 42: break;
   }
 }

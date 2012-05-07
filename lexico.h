@@ -6,7 +6,7 @@
 
 class Lexico : public Tokens{
   public:
-    void AnalisadorLexico ();
+    void AnalisadorLexico (char * argumento);
     int PosicaoIndice (char ch);
     bool IsFinal (int estado);
     void print ();    

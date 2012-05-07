@@ -5,8 +5,10 @@ void Sintatico::error(){
 }
 
 void Sintatico::error(int erro, int queria){
-  cout << "ERRO " << erro << "--" << queria << "linha " << linha << endl;
-  avancar();
+//  cout << "ERRO " << erro << "--" << queria << "linha " << linha << endl;
+  cout << "ERRO " << "linha " << linha << endl;
+//  avancar();
+  exit (0);
 }
 void Sintatico::avancar(){ 
   tok = Lexico::getToken(); 
@@ -31,7 +33,6 @@ void Sintatico::programa(){
   avancar();
   eat(PROGRAM); 
   identificador(); 
-  cout << PONTOVIRGULA << endl;
   eat(PONTOVIRGULA);
   bloco();
   eat(PONTO);

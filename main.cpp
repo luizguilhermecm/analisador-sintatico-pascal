@@ -3,10 +3,9 @@
 #include "sintatico.cpp"
 using namespace std;
 
-int main (){
-  cout << "prog" << endl;
+int main (int argc, char *argv[]){
   Sintatico novo;
-  novo.AnalisadorLexico();
+  novo.AnalisadorLexico(argv[1]);
   novo.programa();
   return 0;
   
