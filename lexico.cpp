@@ -1,5 +1,6 @@
 #include "lexico.h"
 #include <fstream>
+#include <vector>
 using namespace std;
 
 
@@ -9,6 +10,7 @@ Lexico::Lexico(){
       automato[i][j] = 0;
     }
   }
+  cout << "a" << endl;
   automato[1][0]   = 2;
   automato[1][1]   = 3;
   automato[1][2]   = 4;
@@ -108,7 +110,7 @@ void Lexico::print () {
 
 
 void Lexico::AnalisadorLexico(){
-  ifstream fin ("teste.txt");
+  ifstream fin ("texte.txt");
   vector<char> caracter;
   char ch;
   int i;
@@ -116,8 +118,9 @@ void Lexico::AnalisadorLexico(){
   for(i = 0; i < caracter.size(); i++) cout << caracter[i]; 
   fin.clear();
   fin.close();
-  cout << "\n\nSaida\n\n" << caracter.back() << "- \n" << flush;
+  cout << "\n\nSaida\n\n";
   int current_state = 1;
+  cout << "0" << endl;
   int final_state = 0;
   int indice_caracter;
   string palavra;

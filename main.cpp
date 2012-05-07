@@ -3,8 +3,8 @@
 #include "sintatico.cpp"
 using namespace std;
 
-int main () {
-
+int main (){
+  cout << "prog" << endl;
   Sintatico novo;
   novo.AnalisadorLexico();
   novo.programa();
